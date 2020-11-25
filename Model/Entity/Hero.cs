@@ -24,9 +24,9 @@ namespace Model.Entity
         abstract public void Hit(ref Hero enemyHero);
 
         abstract public void Move();
+            
 
-
-        private List<Item> items;
+        public List<Item> items;
         public void AddItem(Item item)
         {
             items.Add(item);

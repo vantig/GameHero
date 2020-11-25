@@ -6,7 +6,17 @@ namespace Model.Entity
 {
    public class Item
     {
-        
+
+        protected Item(int s, int a, int i)
+        {
+            Strength = s;
+            Agility = a;
+            Intelligence = i;
+
+
+        }
+        int count { get; set; }= 0;
+        bool Useable { get; set; }
         public string Name { get; set; }
         public int Cost { get; set; }
         public int Strength { get; set; }
