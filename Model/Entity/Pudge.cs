@@ -13,7 +13,7 @@ namespace Model.Entity
        
         public override void Hit(ref Hero enemyHero)
         {
-            Random rnd = new Random();
+            var rnd = new Random();
 
             enemyHero.Health = enemyHero.Health - this.Strength * rnd.NextDouble() + 0.5;
         }
@@ -21,10 +21,6 @@ namespace Model.Entity
         public override void Move()
         {
             Health += 1;
-        }
-        public override string ToString()
-        {
-           return base.ToString();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Model.Entity
 {
-   public abstract class Hero : IMovable, IHit
+    public abstract class Hero : IMovable, IHit
     {
 
         protected Hero(int s, int a, int i)
@@ -13,7 +13,7 @@ namespace Model.Entity
             Agility = a;
             Intelligence = i;
             Health = CalculateHealth();
-            items = new List<Item>(6);
+            Items = new List<Item>(6);
 
         }
 
@@ -21,15 +21,12 @@ namespace Model.Entity
         {
             return (Agility + Intelligence * 1.5) * Strength / 0.25;
         }
-        abstract public void Hit(ref Hero enemyHero);
 
-        abstract public void Move();
-            
 
-        public List<Item> items;
+        public List<Item> Items;
         public void AddItem(Item item)
         {
-            items.Add(item);
+            Items.Add(item);
             Strength += item.Strength;
             Agility += item.Agility;
             Intelligence += item.Intelligence;
@@ -37,11 +34,11 @@ namespace Model.Entity
         }
         public void DeleteItem(Item item)
         {
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < Items.Count; i++)
             {
-                if (item.Name == items[i].Name)
+                if (item.Name == Items[i].Name)
                 {
-                    items[i] = null;
+                    Items[i] = null;
                     Strength -= item.Strength;
                     Agility -= item.Agility;
                     Intelligence -= item.Intelligence;
@@ -56,7 +53,16 @@ namespace Model.Entity
         public string Name { get; set; }
         public override string ToString()
         {
-            return "Name: "+Name + " Health :" + Health + " Strength :" + Strength + " Agility :" + Agility + " Intelligence :" + Intelligence;
+            string str= "Name: " + Name + " Health :" + Health + " Strength :" + Strength + " Agility :" + Agility + " Intelligence :" + Intelligence+ " Items : ";
+            foreach (var i in Items)
+            {
+                str += i + "  ";
+            }
+            return str;
         }
+
+        abstract public void Hit(ref Hero enemyHero);
+        abstract public void Move();
+
     }
 }

@@ -4,15 +4,22 @@ using System.Text;
 
 namespace Model.Entity
 {
-
-    interface IMovable
+    internal interface IMovable
     {
      
         void Move();
     }
-    interface IHit
+
+    internal interface IHit
     {
         void Hit(ref Hero enemyHero);
         
     }
+
+    internal interface IUseble
+    {
+        void Use();
+
+    }
+
 }

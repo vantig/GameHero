@@ -6,7 +6,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(new Pudge().ToString());
+            var p = new Pudge();
+            p.AddItem(new Aganim());
+            Console.WriteLine(p.ToString());
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Model.Entity
 {
@@ -8,9 +6,10 @@ namespace Model.Entity
     {
         public Aganim() : base(10, 10, 10)
         {
-            base.Name = "Aganim";
-            base.Cost = 4200;
-            base
+            Name = "Aganim";
+            Cost = 4200;
+            Useable = false;
+            Count = 1;
         }
     }
 }
